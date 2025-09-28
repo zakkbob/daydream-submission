@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cxx1su2n2hg1l" path="res://gamedirt.png" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://ggcitoo1yiwd" path="res://player.gd" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bl1xetkv2yrvq" path="res://gamesky.png" id="2_7mycd"]
-[ext_resource type="Script" uid="uid://lva2w2x010tl" path="res://area_2d.gd" id="5_272bh"]
+[ext_resource type="Script" uid="uid://cekho44meby18" path="res://area2d.gd" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://brr737moyeflr" path="res://gamedave-removebg-preview.png" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
@@ -1222,10 +1222,10 @@ shape = SubResource("RectangleShape2D_0xm2m")
 [node name="Camera2D" type="Camera2D" parent="player"]
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("5_272bh")
+script = ExtResource("5_7mycd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(396.5, 291)
 shape = SubResource("RectangleShape2D_272bh")
 
-[connection signal="area_entered" from="Area2D" to="player" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
