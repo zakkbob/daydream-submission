@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=4 uid="uid://13eqqvkq1xun"]
+
+[ext_resource type="Texture2D" uid="uid://cxx1su2n2hg1l" path="res://gamedirt.png" id="1_vmxod"]
+[ext_resource type="Texture2D" uid="uid://bl1xetkv2yrvq" path="res://gamesky.png" id="2_2oc7u"]
+[ext_resource type="PackedScene" uid="uid://brlf86jslld7y" path="res://certain_death.tscn" id="3_vl3d6"]
+[ext_resource type="Script" uid="uid://5obp61io3mfv" path="res://win_lvl4.gd" id="4_ubq6h"]
+[ext_resource type="PackedScene" uid="uid://b3fron44bbrf8" path="res://player.tscn" id="5_2vrrk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
+texture = ExtResource("1_vmxod")
+0:0/size_in_atlas = Vector2i(51, 28)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-411.43408, -236.29657, 405.87427, -236.29657, 400.3142, 230.73676, -416.9939, 230.73676)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
+texture = ExtResource("2_2oc7u")
+0:0/size_in_atlas = Vector2i(51, 28)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-411.43408, -236.29657, 405.87427, -236.29657, 400.3142, 230.73676, -416.9939, 230.73676)
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_5vw27")
+sources/2 = SubResource("TileSetAtlasSource_kek77")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(586, 99.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(3.000001, 5.0000005)
+scale = Vector2(0.1, 0.1)
+tile_map_data = PackedByteArray("AADE/pgAAQAAAAAAAABM/ngAAQAAAAAAAAC4/gr/AQAAAAAAAAAu/+f+AQAAAAAAAADa/+T+AQAAAAAAAABjAOT+AQAAAAAAAADoAOX+AQAAAAAAAAD4/9//AQAAAAAAAADn/UkAAQAAAAAAAABS/hkAAQAAAAAAAAC2/vP/AQAAAAAAAAAx/sf/AQAAAAAAAABK/lb/AQAAAAAAAACF/jD/AQAAAAAAAADi/Z7/AQAAAAAAAADF/W3/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_1bvp3")
+
+[node name="Certain Death" parent="." instance=ExtResource("3_vl3d6")]
+
+[node name="win" type="Area2D" parent="."]
+script = ExtResource("4_ubq6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win"]
+position = Vector2(860, -70.75)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="player" parent="." instance=ExtResource("5_2vrrk")]
+position = Vector2(-22, -91)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 466.0
+offset_top = -531.0
+offset_right = 544.0
+offset_bottom = -508.0
+text = "----->"
+
+[connection signal="body_entered" from="win" to="win" method="_on_body_entered"]
