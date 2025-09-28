@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://3u6c04vbi557"]
+[gd_scene load_steps=11 format=4 uid="uid://3u6c04vbi557"]
 
 [ext_resource type="Texture2D" uid="uid://cxx1su2n2hg1l" path="res://gamedirt.png" id="1_m7216"]
 [ext_resource type="Texture2D" uid="uid://bl1xetkv2yrvq" path="res://gamesky.png" id="2_3k6fr"]
 [ext_resource type="PackedScene" uid="uid://brlf86jslld7y" path="res://certain_death.tscn" id="3_ca72b"]
 [ext_resource type="Script" uid="uid://c4x4usjqkg82c" path="res://win_lvl2.gd" id="4_m7216"]
 [ext_resource type="PackedScene" uid="uid://b3fron44bbrf8" path="res://player.tscn" id="5_e4814"]
+[ext_resource type="PackedScene" uid="uid://bl84uuuxlkyhd" path="res://crate.tscn" id="6_3k6fr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_m7216")
@@ -44,5 +45,8 @@ position = Vector2(1685, 191)
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="player" parent="." instance=ExtResource("5_e4814")]
+
+[node name="Crate" parent="." instance=ExtResource("6_3k6fr")]
+position = Vector2(508, -67)
 
 [connection signal="body_entered" from="win" to="win" method="_on_body_entered"]

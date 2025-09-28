@@ -37,6 +37,7 @@ tile_set = SubResource("TileSet_1bvp3")
 [node name="Certain Death" parent="." instance=ExtResource("3_1bvp3")]
 
 [node name="player" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(-21, 48)
 
 [node name="win" type="Area2D" parent="."]
 position = Vector2(1018, 119)

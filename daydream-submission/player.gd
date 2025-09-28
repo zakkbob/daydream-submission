@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+const PUSH_FORCE = 100
+const MAX_VELOCITY = 150
 
 func _physics_process(delta: float) -> void:
     # Add the gravity.
@@ -20,7 +20,13 @@ func _physics_process(delta: float) -> void:
         velocity.x = direction * SPEED
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
+        
+    for i in get_slide_collision_count():
+        var collision = get_slide_collision(i)
+        var collision_crate = collision.get_collider()
+        if collision_crate.is_in_group("crates") and abs(collision_crate.get_linear_velocity().x) < MAX_VELOCITY:
+            collision_crate.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+            
+        
 
     move_and_slide()
-
-    

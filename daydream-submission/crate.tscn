@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl84uuuxlkyhd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(67, 63)
+
+[node name="Crate" type="RigidBody2D" groups=["crates"]]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(69, 37)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 36.0
+offset_top = 6.0
+offset_right = 102.0
+offset_bottom = 68.0
+color = Color(0.55981517, 0.17113769, 0, 1)
