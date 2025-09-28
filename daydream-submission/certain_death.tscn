@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://brlf86jslld7y"]
+
+[ext_resource type="Script" uid="uid://w3m6enq0v1wd" path="res://certain_death.gd" id="1_ar5nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(3332, 37)
+
+[node name="Certain Death" type="Area2D"]
+script = ExtResource("1_ar5nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(669, 373.5)
+shape = SubResource("RectangleShape2D_272bh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,19 +1,19 @@
-[gd_scene load_steps=10 format=4 uid="uid://dq8bttbm43ab2"]
+[gd_scene load_steps=10 format=4 uid="uid://3u6c04vbi557"]
 
-[ext_resource type="Texture2D" uid="uid://cxx1su2n2hg1l" path="res://gamedirt.png" id="1_lquwl"]
-[ext_resource type="Texture2D" uid="uid://bl1xetkv2yrvq" path="res://gamesky.png" id="2_7mycd"]
-[ext_resource type="PackedScene" uid="uid://brlf86jslld7y" path="res://certain_death.tscn" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://b3fron44bbrf8" path="res://player.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://qw3sswo453e3" path="res://win.gd" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cxx1su2n2hg1l" path="res://gamedirt.png" id="1_m7216"]
+[ext_resource type="Texture2D" uid="uid://bl1xetkv2yrvq" path="res://gamesky.png" id="2_3k6fr"]
+[ext_resource type="PackedScene" uid="uid://brlf86jslld7y" path="res://certain_death.tscn" id="3_ca72b"]
+[ext_resource type="Script" uid="uid://c4x4usjqkg82c" path="res://win_lvl2.gd" id="4_m7216"]
+[ext_resource type="PackedScene" uid="uid://b3fron44bbrf8" path="res://player.tscn" id="5_e4814"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
-texture = ExtResource("1_lquwl")
+texture = ExtResource("1_m7216")
 0:0/size_in_atlas = Vector2i(51, 28)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-411.43408, -236.29657, 405.87427, -236.29657, 400.3142, 230.73676, -416.9939, 230.73676)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
-texture = ExtResource("2_7mycd")
+texture = ExtResource("2_3k6fr")
 0:0/size_in_atlas = Vector2i(51, 28)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-411.43408, -236.29657, 405.87427, -236.29657, 400.3142, 230.73676, -416.9939, 230.73676)
@@ -23,8 +23,8 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_5vw27")
 sources/2 = SubResource("TileSetAtlasSource_kek77")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
-size = Vector2(185, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(128, 56)
 
 [node name="Node2D" type="Node2D"]
 
@@ -34,16 +34,15 @@ scale = Vector2(0.1, 0.1)
 tile_map_data = PackedByteArray("AAD//wwAAAAAAAAAAAAPAAwAAAAAAAAAAAAXAAwAAAAAAAAAAAA2ABgAAAAAAAAAAADu/z0AAQAAAAAAAAAgAD0AAQAAAAAAAADQAA0AAQAAAAAAAAACAQ0AAQAAAAAAAACcAev/AQAAAAAAAADPAev/AQAAAAAAAABAAm0AAQAAAAAAAABxAm0AAQAAAAAAAACiAm4AAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_1bvp3")
 
-[node name="Certain Death" parent="." instance=ExtResource("3_1bvp3")]
-
-[node name="player" parent="." instance=ExtResource("3_h2yge")]
+[node name="Certain Death" parent="." instance=ExtResource("3_ca72b")]
 
 [node name="win" type="Area2D" parent="."]
-position = Vector2(1018, 119)
-script = ExtResource("5_lquwl")
+script = ExtResource("4_m7216")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="win"]
-position = Vector2(-18.5, 13)
-shape = SubResource("RectangleShape2D_7mycd")
+position = Vector2(1015, 126)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="player" parent="." instance=ExtResource("5_e4814")]
 
 [connection signal="body_entered" from="win" to="win" method="_on_body_entered"]
