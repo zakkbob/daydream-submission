@@ -1,19 +1,19 @@
-[gd_scene load_steps=10 format=4 uid="uid://3u6c04vbi557"]
+[gd_scene load_steps=10 format=4 uid="uid://hwqcdotifmym"]
 
-[ext_resource type="Texture2D" uid="uid://cxx1su2n2hg1l" path="res://gamedirt.png" id="1_m7216"]
-[ext_resource type="Texture2D" uid="uid://bl1xetkv2yrvq" path="res://gamesky.png" id="2_3k6fr"]
-[ext_resource type="PackedScene" uid="uid://brlf86jslld7y" path="res://certain_death.tscn" id="3_ca72b"]
-[ext_resource type="Script" uid="uid://c4x4usjqkg82c" path="res://win_lvl2.gd" id="4_m7216"]
-[ext_resource type="PackedScene" uid="uid://b3fron44bbrf8" path="res://player.tscn" id="5_e4814"]
+[ext_resource type="Texture2D" uid="uid://cxx1su2n2hg1l" path="res://gamedirt.png" id="1_5amml"]
+[ext_resource type="Texture2D" uid="uid://bl1xetkv2yrvq" path="res://gamesky.png" id="2_cxaom"]
+[ext_resource type="PackedScene" uid="uid://brlf86jslld7y" path="res://certain_death.tscn" id="3_ra66b"]
+[ext_resource type="Script" uid="uid://cue16iu1nehnw" path="res://win_lvl3.gd" id="4_5amml"]
+[ext_resource type="PackedScene" uid="uid://b3fron44bbrf8" path="res://player.tscn" id="5_vce38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
-texture = ExtResource("1_m7216")
+texture = ExtResource("1_5amml")
 0:0/size_in_atlas = Vector2i(51, 28)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-411.43408, -236.29657, 405.87427, -236.29657, 400.3142, 230.73676, -416.9939, 230.73676)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
-texture = ExtResource("2_3k6fr")
+texture = ExtResource("2_cxaom")
 0:0/size_in_atlas = Vector2i(51, 28)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-411.43408, -236.29657, 405.87427, -236.29657, 400.3142, 230.73676, -416.9939, 230.73676)
@@ -24,25 +24,26 @@ sources/1 = SubResource("TileSetAtlasSource_5vw27")
 sources/2 = SubResource("TileSetAtlasSource_kek77")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(128, 56)
+size = Vector2(64, 39)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(4, 5)
+position = Vector2(5, 5.0000005)
 scale = Vector2(0.1, 0.1)
-tile_map_data = PackedByteArray("AAAMAFUAAQAAAAAAAAB3ACAAAQAAAAAAAAB5AJMAAQAAAAAAAADoAFgAAQAAAAAAAABVARwAAQAAAAAAAADPAef/AQAAAAAAAAA9AiYAAQAAAAAAAAD/AmIAAQAAAAAAAACLA5kAAQAAAAAAAAAbBJgAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAApAaX/AQAAAAAAAABUASb/AQAAAAAAAAAhASb/AQAAAAAAAADSAfv+AQAAAAAAAABIAtX+AQAAAAAAAAC+AND/AQAAAAAAAABHAO//AQAAAAAAAACZAYD/AQAAAAAAAADJAGL/AQAAAAAAAACyAVD/AQAAAAAAAABbAaX/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_1bvp3")
 
-[node name="Certain Death" parent="." instance=ExtResource("3_ca72b")]
+[node name="Certain Death" parent="." instance=ExtResource("3_ra66b")]
 
 [node name="win" type="Area2D" parent="."]
-script = ExtResource("4_m7216")
+script = ExtResource("4_5amml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="win"]
-position = Vector2(1685, 191)
+position = Vector2(938, -516)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="player" parent="." instance=ExtResource("5_e4814")]
+[node name="player" parent="." instance=ExtResource("5_vce38")]
+position = Vector2(105, -87)
 
 [connection signal="body_entered" from="win" to="win" method="_on_body_entered"]
