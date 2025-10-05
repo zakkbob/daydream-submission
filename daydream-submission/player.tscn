@@ -1,22 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3fron44bbrf8"]
+[gd_scene load_steps=10 format=3 uid="uid://b3fron44bbrf8"]
 
 [ext_resource type="Script" uid="uid://ggcitoo1yiwd" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://clolymp1qulw3" path="res://davegame.png" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://clwavcjg0oxlj" path="res://daveWave.png" id="3_sweqy"]
-[ext_resource type="Texture2D" uid="uid://b8s2x132h7a7m" path="res://davewave2.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://5h51mlompe7e" path="res://davenoleg.png" id="2_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://4wc7lasj1e36" path="res://dave leg jump1.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://decx0g1bx1fkq" path="res://dave leg jump2.png" id="4_dw050"]
+[ext_resource type="Texture2D" uid="uid://ckyefj3623wyt" path="res://dave leg jump3.png" id="5_b26j0"]
 [ext_resource type="Script" uid="uid://do4elt84onnjg" path="res://wave.gd" id="5_sweqy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1jxqw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hqtel")
+"texture": ExtResource("2_2hs0m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_sweqy")
+"texture": ExtResource("3_1jxqw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2hs0m")
+"texture": ExtResource("4_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
 }],
 "loop": true,
 "name": &"wave",
